@@ -30,7 +30,7 @@ Un bot Discord qui effectue des tests d'orientation politique avec un biais inte
 
 1. Clonez le repository :
 ```bash
-git clone [git@github.com:AnARCHIS12/lavoixlibertaire.git]
+git clone git@github.com:AnARCHIS12/lavoixlibertaire.git
 ```
 
 2. Installez les dépendances :
