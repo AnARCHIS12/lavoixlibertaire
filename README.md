@@ -18,9 +18,9 @@ Un bot Discord qui effectue des tests d'orientation politique avec un biais inte
 - `/addquestion` : Ajoute une nouvelle question
 - `/removequestion` : Supprime une question existante
 - `/listquestions` : Liste toutes les questions
-- `/resetquestions` : Réinitialise les questions par défaut
+- `/resetconfig` : Réinitialise la config  par défaut
 - `/test [@membre]` : Force un test pour un membre
-
+- `/setroles` : Définis les rôles gauche et droite 
 ### 🔨 Configuration Requise
 - 📦 Node.js v16 ou supérieur
 - 🔑 Un token de bot Discord
