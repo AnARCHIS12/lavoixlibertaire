@@ -3,11 +3,24 @@ import { createServer } from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
 import winston from 'winston';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
+// Serve static files from the dist directory
+app.use(express.static(join(__dirname, 'dist')));
+
+// Serve index.html for all routes
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname, 'dist', 'index.html'));
+});
 
 const server = createServer(app);
 const io = new Server(server, {
@@ -141,7 +154,7 @@ io.on('connection', (socket) => {
 });
 
 // Démarrer le serveur
-const PORT = 3001;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-  console.log(`Serveur démarré sur le port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
